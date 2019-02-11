@@ -5,7 +5,7 @@
  */
 package mb_version_3;
 
-import entidad.Plan;
+import entidad.plan;
 import java.util.ArrayList;
 
 /**
@@ -23,9 +23,6 @@ public class Pantalla_principal extends javax.swing.JFrame {
     private LoginPanel login = new LoginPanel();
     private PlanesPanel planes = new PlanesPanel();
 
-   
-    
-    
     public Pantalla_principal() {
         initComponents();
     }
@@ -227,9 +224,11 @@ public class Pantalla_principal extends javax.swing.JFrame {
             }
             
             //plan planNuevo = new plan();
-            ArrayList<Plan> listadePlanes = new ArrayList<Plan>();
-            DataPlanPanel acciones = new DataPlanPanel();
+            ArrayList<plan> listadePlanes = new ArrayList<plan>();
+            IncludePlan acciones = new IncludePlan();
             
+            ArrayList<plan> listaCelulares = new ArrayList<plan>();
+            IncludeCell cell = new IncludeCell();
         });
     }
 

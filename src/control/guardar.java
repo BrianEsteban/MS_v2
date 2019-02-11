@@ -5,19 +5,26 @@
  */
 package control;
 
-import entidad.Plan;
+import entidad.cell;
+import entidad.plan;
 import java.util.ArrayList;
 
 /**
  *
  * @author JULIO
  */
-public class guardar {
-     public  ArrayList <Plan> planes = new ArrayList<>();
+public class guardar 
+{
+    public ArrayList <plan> planes = new ArrayList<>();
+    public ArrayList <cell> cells = new ArrayList<>();
       
-    public void guardarplan(Plan nuevoPlan)
+    public void guardarplan(plan nuevoPlan)
     {
         planes.add(nuevoPlan);
-        
+    }
+    
+    public void saveCell(cell newCell)
+    {
+        cells.add(newCell);
     }
 }

@@ -15,13 +15,16 @@ public class IncludePanel extends javax.swing.JPanel {
      * Creates new form Include
      */
     
-    private DataPlanPanel plans = new DataPlanPanel();
-    private PlanesPanel planInserted = new PlanesPanel();
-    
     public IncludePanel() {
         initComponents();
     }
+    
 
+    private IncludeCell cells = new IncludeCell();
+    private IncludePlan plans = new IncludePlan();
+    private PlanesPanel planInserted = new PlanesPanel();
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,7 +167,10 @@ public class IncludePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_IncludeActionPerformed
 
     private void IncludePhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IncludePhoneActionPerformed
-        // TODO add your handling code here:
+       SecondPanel.setVisible(false);
+       SecondPanel.removeAll();
+       SecondPanel.add(cells);
+       SecondPanel.setVisible(true); 
     }//GEN-LAST:event_IncludePhoneActionPerformed
 
 

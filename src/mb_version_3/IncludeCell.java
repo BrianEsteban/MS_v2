@@ -5,7 +5,16 @@
  */
 package mb_version_3;
 
+import control.InsertCell;
+import control.InsertPlan;
 import entidad.cell;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,17 +52,17 @@ public class IncludeCell extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         bateryText = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Aceptar = new javax.swing.JButton();
         costText = new javax.swing.JTextField();
-        companytext = new javax.swing.JTextField();
+        companyText = new javax.swing.JTextField();
         processorText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        asociatedcbox = new javax.swing.JComboBox<String>();
-        camaracbox = new javax.swing.JComboBox<String>();
-        romcbox = new javax.swing.JComboBox<String>();
-        ramcbox = new javax.swing.JComboBox<String>();
+        asociatedcbox = new javax.swing.JComboBox<>();
+        cameracbox = new javax.swing.JComboBox<>();
+        romcbox = new javax.swing.JComboBox<>();
+        ramcbox = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
@@ -90,10 +99,10 @@ public class IncludeCell extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Aceptar.setText("Aceptar");
+        Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AceptarActionPerformed(evt);
             }
         });
 
@@ -103,9 +112,9 @@ public class IncludeCell extends javax.swing.JPanel {
             }
         });
 
-        companytext.addActionListener(new java.awt.event.ActionListener() {
+        companyText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                companytextActionPerformed(evt);
+                companyTextActionPerformed(evt);
             }
         });
 
@@ -121,23 +130,23 @@ public class IncludeCell extends javax.swing.JPanel {
 
         jLabel9.setText("Asocieted DataPlan:");
 
-        asociatedcbox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "SI", "NO" }));
+        asociatedcbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "SI", "NO" }));
         asociatedcbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asociatedcboxActionPerformed(evt);
             }
         });
 
-        camaracbox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "3", "4", "5", "6", "8", "12", "16", "18", "21" }));
+        cameracbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "3", "4", "5", "6", "8", "12", "16", "18", "21" }));
 
-        romcbox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "1", "2", "3", "4", "8", "10", "12", "14", "24", "32" }));
+        romcbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1", "2", "3", "4", "8", "10", "12", "14", "24", "32" }));
         romcbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 romcboxActionPerformed(evt);
             }
         });
 
-        ramcbox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "1", "2", "3", "4", "6", "8", "12", "14" }));
+        ramcbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1", "2", "3", "4", "6", "8", "12", "14" }));
 
         jLabel10.setText("Attach Image:");
 
@@ -171,7 +180,7 @@ public class IncludeCell extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(asociatedcbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(Aceptar)
                         .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +193,7 @@ public class IncludeCell extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(camaracbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cameracbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel13))
                                             .addComponent(bateryText, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
@@ -208,7 +217,7 @@ public class IncludeCell extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel11))
                                     .addComponent(processorText, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(companytext))
+                                    .addComponent(companyText))
                                 .addGap(9, 9, 9))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +244,7 @@ public class IncludeCell extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(companytext, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyText, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -270,7 +279,7 @@ public class IncludeCell extends javax.swing.JPanel {
                                 .addGap(11, 11, 11))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(camaracbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cameracbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,7 +295,7 @@ public class IncludeCell extends javax.swing.JPanel {
                     .addComponent(costText, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(Aceptar)
                     .addComponent(jLabel9)
                     .addComponent(asociatedcbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -297,21 +306,47 @@ public class IncludeCell extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String company = companytext.getText();
-        String processor = processorText.getText();
-        String batery = bateryText.getText();
-        String ram = ramcbox.getSelectedItem().toString();
-        String rom = romcbox.getSelectedItem().toString();
-        String camera = camaracbox.getSelectedItem().toString();
-        String bateria = bateryText.getText();
-        String cost = costText.getText();
-        String planasociado = asociatedcbox.getSelectedItem().toString();
+    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
+        // TODO add your handling code here:        
+      String cost = costText.getText();
+      String company = companyText.getText();
+      String processor = processorText.getText();
+      String batery = bateryText.getText(); 
+      String camera = cameracbox.getSelectedItem().toString();
+      String ram = ramcbox.getSelectedItem().toString();
+      String rom = romcbox.getSelectedItem().toString();
+      String plan = asociatedcbox.getSelectedItem().toString();
+      
+      //cell cellNuevo = new cell();
+      
+      if(cost.isEmpty() || company.isEmpty() || processor.isEmpty() || batery.isEmpty()
+              || camera.equals("Select") || ram.equals("Select") || rom.equals("Select") || plan.equals("Select")){
+          JOptionPane.showMessageDialog(null, "Error de ingreso:\n"
+                    + "Por favor ingrese todos los datos solicitados", "Información incompleta",
+                    JOptionPane.ERROR_MESSAGE);
+      }else{
+            try{
+                InsertCell ic = new InsertCell(company, processor, ram, rom, camera, batery, cost, plan);
+            } catch (Exception ex) {
+                Logger.getLogger(IncludePlan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          JOptionPane.showMessageDialog(null, "Se ha añadido correctamente el Celular",   "Correcto",
+                    JOptionPane.INFORMATION_MESSAGE);
+                    DataPlanPanel.setVisible(false);
+                    DataPlanPanel.removeAll();
+                   // DataPlanPanel.add(Cost);
+                    DataPlanPanel.setVisible(true);
+        this.costText.setText("");
+        this.companyText.setText("");
+        this.processorText.setText("");
+        this.bateryText.setText("");
+        this.cameracbox.getSelectedItem();
+        this.ramcbox.getSelectedItem();
+        this.romcbox.getSelectedItem();
+        this.asociatedcbox.getSelectedItem();
+    }
         
-        cell cellNuevo = new cell();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AceptarActionPerformed
 
     private void bateryTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bateryTextActionPerformed
         // TODO add your handling code here:
@@ -321,9 +356,9 @@ public class IncludeCell extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_costTextActionPerformed
 
-    private void companytextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companytextActionPerformed
+    private void companyTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_companytextActionPerformed
+    }//GEN-LAST:event_companyTextActionPerformed
 
     private void processorTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processorTextActionPerformed
         // TODO add your handling code here:
@@ -342,13 +377,13 @@ public class IncludeCell extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Aceptar;
     private javax.swing.JPanel DataPlanPanel;
     private javax.swing.JComboBox<String> asociatedcbox;
     private javax.swing.JTextField bateryText;
-    private javax.swing.JComboBox<String> camaracbox;
-    private javax.swing.JTextField companytext;
+    private javax.swing.JComboBox<String> cameracbox;
+    private javax.swing.JTextField companyText;
     private javax.swing.JTextField costText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
